@@ -8,6 +8,10 @@ import CryptoKit
 class AboozBridgeViewController: CAPBridgeViewController {
     override open func capacitorDidLoad() {
         bridge?.registerPluginInstance(AboozNativePlugin())
+        // iOS-typisch: Seite federt immer nach (auch wenn der Inhalt kürzer als der Bildschirm ist)
+        webView?.scrollView.bounces = true
+        webView?.scrollView.alwaysBounceVertical = true
+        webView?.scrollView.contentInsetAdjustmentBehavior = .never
     }
 }
 
